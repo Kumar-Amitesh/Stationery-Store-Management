@@ -1,0 +1,175 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/mystyle.css" />
+
+</head>
+<body>
+  
+  <div class="topnav">
+    
+  <a href="/" style="float: left;">Home</a>
+  
+  <a href="/" class="center">Stationary Store</a>
+  <a href="#about" class="right">About</a>
+  <a href="/login" class="right"><% if(user!=''){%><p class="text-dark"><%= user %></p><% }else{%><i class="fas fa-user"></i><%}%></a>
+ <a href="#contact" class="right" ><i class="fas fa-shopping-cart"></i></a>
+ <a href="#about" class="right"><i class="fas fa-search"></i></a>
+</div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+	  AOS.init(
+		  {
+			  offset:300,
+		  }
+    );
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/mystyle.css" />
+</head>
+<body>
+  
+  <div class="topnav">
+    <a href="/" style="float: left;">Home</a>
+    <a href="/" class="center">Stationary Store</a>
+    <a href="#about" class="right">About</a>
+    <a href="/login" class="right">
+      <% if (user) { %>
+        <p class="text-dark d-inline"><%= user %></p> 
+      <% } else { %>
+        <i class="fas fa-user"></i>
+      <% } %>
+    </a>
+    <a href="/cart" class="right"><i class="fas fa-shopping-cart"></i></a>
+    <a href="#search" class="right"><i class="fas fa-search"></i></a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 300,
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stationary Store</title>
+
+  <!-- AOS (Animate on Scroll) Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <!-- Bootstrap CSS (Responsive Grid and Components) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <!-- Font Awesome (Icons) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/mystyle.css" />
+  
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    .topnav {
+      background-color: #333;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .topnav a {
+      color: #f1f1f1;
+      padding: 14px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav .right {
+      float: right;
+    }
+
+    .topnav .center {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .topnav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <nav class="topnav">
+      <a href="/" class="left">Home</a>
+      <a href="/" class="center">Stationary Store</a>
+      <a href="#about" class="right">About</a>
+      <a href="<%= user ? '/logout' : '/login' %>" class="right">
+        <% if (user) { %>
+          <p class="text-dark d-inline"><%= user %></p> 
+        <% } else { %>
+          <i class="fas fa-user"></i>
+        <% } %>
+      </a>
+      <a href="/cart" class="right"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#search" class="right"><i class="fas fa-search"></i></a>
+    </nav>
+  </header>
+
+  <!-- Include AOS (Animate on Scroll) and Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      offset: 300,
+    });
+  </script>
+</body>
+</html>
+

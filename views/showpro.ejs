@@ -1,0 +1,83 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/mystyle.css" />  
+</head>
+   <body>
+    <br>
+    <div class="ui menu">
+        
+        <div class="item">
+            <a href="/">
+            <div class="ui button">Home</div></a>
+      </div>
+      <div class="item">
+        <a href="/addpro">
+        <div class="ui button bg-danger">Addproduct</div></a>
+      </div>
+     <div class="item">
+    <a href="/showpro">
+    <div class="ui primary button">Showproduct</div></a>
+     </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <% if(success !=''){%>
+        <div class="alert alert-success">
+          <strong>Success!</strong> <%= success %>
+        </div>
+        <% } %>
+    <div class="container">
+        <div class="row">
+         <table class="table table-striped table-success">
+          <thead>
+            <tr>
+              
+              <th>Name</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Product-image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%if (store.length >0){ %>
+            <% for(stationary of store ){ %>
+            <tr>
+              <td><%= stationary.name %></td>
+              <td><%= stationary.title %></td>
+              <td><%= stationary.price %></td>
+              <td><%= stationary.des %></td>
+              
+              <td>
+                <% if(stationary.image){ %>
+                <img src="./uploads/<%= stationary.image %>" alt="profile image" width="80">
+              <% } %>
+              </td>
+              <td><a class="btn btn-primary btn-xs" href="/edit/<%= stationary.id %>"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger btn-xs" href="/delete/<%= stationary.id %>"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            <% }}else{ %>
+              <tr>
+                  <td colspan="6">No Record Found</td>
+                  
+                </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+</body>
+</html>

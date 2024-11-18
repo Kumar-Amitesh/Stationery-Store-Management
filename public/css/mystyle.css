@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+body {
+  font-style: italic;
+  background-image: url("../img/back4.jpg");
+}
+.slide {
+  background-color: black;
+  width: 100%;
+  height: 500px;
+}
+.slide1 img {
+  width: 100%;
+}
+/* .slide1 img:hover {
+  content: url("/img/slide3.jpg");
+} */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(180, 70, 76);
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: #333;
+  color: white;
+}
+#form {
+  margin-top: 50px;
+  background-color: #4a8faf;
+
+  margin-left: 40%;
+  color: white;
+  width: fit-content;
+}
+
+.right {
+  float: right;
+}
+.center {
+  margin-left: 40%;
+}
+.jumbotron {
+  color: aliceblue;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.card {
+  border: 1px solid black;
+  width: 280px;
+  height: 360px;
+  padding: 2rem 1rem;
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0, 0.5);
+}
+.card:hover {
+  height: 400px;
+  width: 300px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 176, 155, 0.5),
+    rgba(150, 201, 61, 1)
+  );
+  z-index: 2;
+  transition: 0.5s all;
+  opacity: 0;
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card .info {
+  position: relative;
+  z-index: 3;
+  font-size: 24px;
+  background-color: black;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s;
+  margin-top: 50px;
+  text-align: center;
+}
+.card:hover .info {
+  opacity: 0.5;
+  transform: translateY(0px);
+}
+.card .info h1 {
+  margin: 0;
+}
+/* .card .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+} */
+.card .info .btn {
+  text-decoration: none;
+
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.card .info .btn:hover {
+  font-size: 20px;
+}

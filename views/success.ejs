@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Payment Success</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .success-container {
+      text-align: center;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .success-container h2 {
+      font-size: 2rem;
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    .success-container p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-home {
+      background-color: #28a745;
+    }
+
+    .btn-home:hover {
+      background-color: #218838;
+    }
+
+    .btn-history {
+      background-color: #007bff;
+    }
+
+    .btn-history:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your purchase!</p>
+    
+    <div class="button-group">
+      <a href="/" class="btn btn-home">Go to Home</a>
+      <a href="/order-history" class="btn btn-history">View Order History</a>
+    </div>
+  </div>
+</body>
+</html>

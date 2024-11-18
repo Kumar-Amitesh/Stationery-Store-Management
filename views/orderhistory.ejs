@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./header") %>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .order-history-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-history-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #444;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .order-container {
+      background-color: #fafafa;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .order-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .order-container h3 {
+      color: #222;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+    }
+
+    .order-details {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .order-details strong {
+      color: #222;
+    }
+
+    .order-items {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    .order-item {
+      padding: 10px;
+      background: #fdfdfd;
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    .order-item:hover {
+      background-color: #f8f8f8;
+    }
+
+    .order-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .no-orders {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #777;
+      margin-top: 40px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="order-history-container">
+    <h2>Your Order History</h2>
+    
+    <% if (orders.length > 0) { %>
+      <% orders.forEach(order => { %>
+        <div class="order-container">
+          <h3>Order for <%= order.name %> (Email: <%= order.email %>)</h3>
+          <p class="order-details">
+            Address: <%= order.address %>, Phone: <%= order.phone %><br>
+            <strong>Order Time:</strong> <%= new Date(order.created_at).toLocaleString('en-GB', {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+            }) %>
+          </p>
+          <ul class="order-items">
+            <% order.items.forEach(item => { %>
+              <li class="order-item">
+                <%= item.product_name %><br> Quantity: <%= item.quantity %>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p class="no-orders">No order history available.</p>
+    <% } %>
+  </div>
+  
+  
+  <%- include("./footer") %>
+</body>
+</html>

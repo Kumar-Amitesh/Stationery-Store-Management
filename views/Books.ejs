@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./header") %>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+<body>
+    
+    <br>
+    <br>
+    <% if(store.length>0){ %>
+        <div>
+      <% for(stationary of store ){ %>
+       <a href="/details/<%= stationary.id %>"><div class="card-user" >
+          
+      <img src="../uploads/<%= stationary.image %>" alt="profileimage">
+          <div class="container-user" >    
+      <h5><b><%= stationary.name %></b></h5>
+      <i>Price:<%= stationary.price %> <i>
+  </div>
+    
+  </div></a>
+      <% } %>
+        </div>
+      <% } else { %>
+      <h1>Product not found</h1>
+      <% } %>
+      <br>
+    <%- include("./footer") %>   
+    
+</body>
+</html>

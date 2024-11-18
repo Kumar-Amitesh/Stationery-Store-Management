@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./header") %>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    /* Resetting margin and padding for all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Full height body to allow the footer to stay at the bottom */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f3f4;
+      color: #333;
+      min-height: 100vh; /* Ensure full height of the viewport */
+      display: flex;
+      flex-direction: column;  /* Stack elements vertically */
+    }
+
+    /* Main content area */
+    .failure-container {
+      text-align: center;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 90%;
+      margin: auto; /* Centers the failure box horizontally */
+      margin-top: 100px; /* Optional space from the top */
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Styling for failure heading */
+    h2 {
+      color: #e74c3c; /* Red color for failure */
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    /* Paragraph styling */
+    p {
+      font-size: 1.1rem;
+      margin: 15px 0 30px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Styling for the link */
+    .return {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #3498db;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .return:hover {
+      background-color: #2980b9;
+    }
+
+    /* Icon for failure message */
+    .icon {
+      font-size: 4rem;
+      color: #e74c3c;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <body>
+    <div class="failure-container">
+      <div class="icon">✖️</div> <!-- Error icon for added emphasis -->
+      <h2>Payment Failed</h2>
+      <p>We're sorry, but there was an issue processing your payment. Please try again or contact support for help.</p>
+      <a href="/cart" class="return">Return to Cart</a>
+    </div>
+
+    <%- include("./footer") %> <!-- Footer content -->
+  </body>
+</html>

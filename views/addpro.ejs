@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="/css/mystyle.css" />
+    <!-- add before </body> -->
+
+</head>
+<body>
+    <br>
+    <div class="ui menu">
+        
+        <div class="item">
+            <a href="/">
+            <div class="ui button">Home</div></a>
+      </div>
+      <div class="item">
+        <a href="/addpro">
+        <div class="ui button bg-danger">Addproduct</div></a>
+      </div>
+     <div class="item">
+    <a href="/showpro">
+    <div class="ui primary button">Showproduct</div></a>
+     </div>
+      </div>
+      <br>
+      <br>
+      
+      <% if(success !=''){%>
+        <div class="alert alert-success">
+          <strong>Success!</strong> <%= success %>
+        </div>
+        <% } %>
+      <br>
+      <div class="ui container">
+        <form action="/post" class="ui form" method="POST" enctype="multipart/form-data">
+            <div>
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="" placeholder="Name...">
+                </div>
+                <div class="field">
+                    <label for="name">Title:</label>
+                    <input type="text" name="title" id="" placeholder="Title...">
+                </div>
+                <div class="field">
+                  <label for="price">Price:</label>
+                  <input type="text" name="price" id="" placeholder="Rs.">
+              </div>
+              <div class="field">
+                  <label for="brand">Description:</label>
+                  <textarea rows="4" cols="50" name="des">Enter description here...</textarea>
+              </div>
+            <div class="field">
+                <label for="img">Image:</label>
+                <input type="file" name="file" class="ui image medium">
+            </div>
+            <br>
+            <div>
+                <button class="ui button green" type="submit">Save</button>
+            </div>
+            </div>
+        </form>
+      </div>
+       
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title><%= title %></title>
+    
+    <%- include("./header") %>  
+
+    <link rel="stylesheet" href="/css/details.css" /> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body>
+  <br>
+  <div class="row-det">
+    <div class="column-det">
+      <div class="card-det">
+        <img src="../uploads/<%= store.image %>" class="card-img" alt="profileimage">
+      </div>
+    </div>
+  
+    <div class="column-det">
+      <div class="card-det">
+        <div class="card-text">   
+          <h4><b><%= store.name %></b></h4>
+          <h4><i>Price: <%= store.price %></i></h4><br>
+
+          <% if (user) { %>
+            <a href="#" class="info">
+              <button class="btn bg-success">
+                <h4>Add to cart</h4>
+              </button>
+            </a>
+            <a href="/cart" class="info">
+              <button class="btn bg-danger">
+                <h4>Buy Now</h4>
+              </button>
+            </a>
+          <% } else { %>
+            <p>Please <a href="/login">log in</a> to add to cart.</p>
+          <% } %>
+          <br><br>
+          <h4>Product Info:</h4>
+          <p><%= store.des %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br>
+  <%- include("./footer") %>   
+
+  <script>
+    // Only trigger this if the user is logged in
+    // if (user) {
+      $('.btn.bg-success').on('click', function() { 
+        $.post('/cart/add', { 
+          userId: '<%= user.id %>', 
+          productName: '<%= store.name %>', 
+          quantity: 1 
+        }, function(response) {
+          alert("Product added to cart!");
+        });
+      });
+    // }
+  </script>
+</body>
+</html>
