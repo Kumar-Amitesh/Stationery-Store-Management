@@ -40,7 +40,7 @@ The **Stationery Store Management System** is a web-based application designed t
 ## Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/stationery-store.git
+   git clone https://github.com/Kumar-Amitesh/Stationary-Store-Management.git
    cd stationery-store
    ```
 2. Install dependencies:
