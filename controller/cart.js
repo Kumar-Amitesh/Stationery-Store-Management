@@ -2,7 +2,6 @@ import pool from "../config/db.js";
 
 export const addToCart = async (req, res, next) => {
     const { productName, quantity } = req.body;
-    console.log(req.user);
     try {
         if (req.user) {
             // For logged-in users, add item to the database

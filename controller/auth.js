@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs'; // Ensure bcryptjs is installed
 import pool from '../config/db.js';
 
-const JWT_SECRET = 'your_jwt_secret_key'; // Store this securely in an environment variable
+const JWT_SECRET = process.env.JWT_SECRET; // Store this securely in an environment variable
 
 export const login = (req, res) => {
   res.render("login", { title: "Login/Signup", error: '', success: '', user: '' });
@@ -22,7 +22,7 @@ export const signin = async (req, res) => {
   const { Uname, Pass } = req.body;
   
   // Check for admin login
-  if (Uname === "NodeJs" && Pass === "MongoDb") {
+  if (Uname === process.env.UNAME && Pass === process.env.UNAME_PASS) {
     // Generate JWT for admin
     const token = jwt.sign({ username: Uname, role: "admin" }, JWT_SECRET, { expiresIn: '1h' });
     req.session.token = token;  // Store the token in session
@@ -39,7 +39,7 @@ export const signin = async (req, res) => {
           // Compare the password
           const isPasswordValid = await bcrypt.compare(Pass, user.pass);
           if (isPasswordValid) {
-              console.log("Password matched");
+              // console.log("Password matched");
 
               // Generate JWT for regular user
               const token = jwt.sign(
@@ -54,7 +54,7 @@ export const signin = async (req, res) => {
 
               res.redirect("/"); // Redirect to home or desired page
           } else {
-              console.log("Invalid password");
+              // console.log("Invalid password");
               res.render("login", {
                   title: "Login",
                   error: { login: { msg: "Invalid password" } },
@@ -63,7 +63,7 @@ export const signin = async (req, res) => {
               });
           }
       } else {
-          console.log("User not found");
+          // console.log("User not found");
           res.render("login", {
               title: "Login",
               error: { login: { msg: "User not found" } },

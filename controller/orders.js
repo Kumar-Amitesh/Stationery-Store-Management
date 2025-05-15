@@ -5,7 +5,6 @@ import bcrypt from 'bcryptjs';
 export const payment = async (req, res, next) => {
     const { user_id } = req.user;
     const { name, email, address, phone, password } = req.body; // Password added to the request body
-    console.log(req.body);
 
     try {
         // Fetch the stored password for the user from the database
@@ -68,7 +67,6 @@ export const failure = async (req, res, next) => {
 // Order history route
 export const orderhistory = async (req, res) => {
     const { user_id } = req.user;
-    console.log(req.body);
 
     try {
         const orders = await pool.query(`SELECT * FROM orders WHERE user_id = $1`, [user_id]);

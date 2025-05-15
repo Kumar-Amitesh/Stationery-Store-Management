@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
-const JWT_SECRET = 'your_jwt_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export default (req, res, next) => {
   const token = req.session.token;
@@ -15,9 +15,6 @@ export default (req, res, next) => {
       console.error("Token verification failed:", err);
       return res.redirect('/login');  // Invalid token, redirect to login
     }
-
-    // Check the decoded JWT data
-    console.log("Decoded user data:", decoded);
 
     const { passwordHash } = decoded;
 

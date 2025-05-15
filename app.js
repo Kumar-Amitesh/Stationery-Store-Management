@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
 import session from "express-session";
+import 'dotenv/config'; 
 import router from "./router/stationary.js";
 import admin from "./router/admin.js";
 import pool from "./config/db.js";
