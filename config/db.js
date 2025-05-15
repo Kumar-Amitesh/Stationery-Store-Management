@@ -3,11 +3,11 @@ import pkg from 'pg';
 const { Pool } = pkg;
 
 const pool = new Pool({
-  user: 'admin',
-  host: 'localhost',
-  database: 'statstore',
-  password: '22BCE2130',
-  port: 5432,
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASS,
+  port: process.env.PORT,
 });
 
 pool.connect()
